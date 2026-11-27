@@ -70,7 +70,6 @@ function CardPreview({ item, t }) {
         <span className="grid size-11 place-items-center rounded-xl bg-white text-navy shadow-sm ring-1 ring-navy-100">
           <CategoryIcon type={item.type} className="size-5 text-lime-dark" />
         </span>
-        <span className="text-sm font-extrabold tracking-wider text-navy-400">{item.code}</span>
         <span className="text-[11px] font-semibold text-navy-400">{t('pending')}</span>
       </div>
     </div>
@@ -127,9 +126,6 @@ function CertificateModal({ item, items, onSelect, onClose, t }) {
         {/* Top Bar */}
         <div className="flex items-center justify-between gap-4 border-b border-navy-100 px-5 py-4 md:px-7">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded bg-navy px-2.5 py-1 text-xs font-bold tracking-wider text-lime">
-              {item.code}
-            </span>
             <Chip tone="lime">{t(`filters.${item.type}`)}</Chip>
           </div>
           <button
@@ -198,7 +194,6 @@ function CertificateModal({ item, items, onSelect, onClose, t }) {
                   <span className="grid size-14 place-items-center rounded-2xl bg-navy text-lime">
                     <CategoryIcon type={item.type} className="size-7" />
                   </span>
-                  <span className="text-lg font-extrabold tracking-wider text-navy">{item.code}</span>
                   <p className="max-w-xs text-xs leading-relaxed text-navy-600">{t('imagePending')}</p>
                 </div>
               </div>
@@ -269,7 +264,7 @@ function CertificateModal({ item, items, onSelect, onClose, t }) {
 export default function EvidencePage() {
   const { t, list } = useContent('evidence')
   useDocumentTitle(t('meta.title'))
-  const [activeCategory, setActiveCategory] = useState('B')
+  const [activeCategory, setActiveCategory] = useState('all')
   const [selectedItem, setSelectedItem] = useState(null)
 
   const items = list('items')
@@ -317,11 +312,6 @@ export default function EvidencePage() {
                   >
                     <Icon className="size-4" aria-hidden="true" />
                   </span>
-                  {key !== 'all' && (
-                    <span className={cn('text-xs font-extrabold', active ? 'text-lime' : 'text-navy-400')}>
-                      {key}
-                    </span>
-                  )}
                 </div>
                 <span className="mt-3 text-sm font-bold leading-snug">{t(`filters.${key}`)}</span>
                 <span className={cn('mt-1 text-xs font-semibold', active ? 'text-lime' : 'text-navy-400')}>
@@ -350,17 +340,9 @@ export default function EvidencePage() {
                 >
                   <CardPreview item={item} t={t} />
                   <div className="flex flex-1 flex-col p-5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className="rounded bg-navy px-2 py-0.5 text-[11px] font-bold tracking-wider text-lime"
-                        title={t('codeLabel')}
-                      >
-                        {item.code}
-                      </span>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-navy-600">
-                        {t(`filters.${item.type}`)}
-                      </span>
-                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-navy-600">
+                      {t(`filters.${item.type}`)}
+                    </span>
                     <h3 className="mt-3 text-base font-bold leading-snug text-navy">{item.title}</h3>
                     <p className="mt-1 text-xs font-semibold text-navy-600">
                       {[item.issuer, item.date].filter(Boolean).join(' · ')}

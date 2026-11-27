@@ -51,7 +51,7 @@ function Courses() {
                 <IconBadge icon={BookOpen} />
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-gold-dark">
-                    {group.tier} · {group.items.length}
+                    {group.tier} · {t('courses.total', { count: group.items.length })}
                   </p>
                   <h3 className="mt-1 font-bold leading-snug">{group.name}</h3>
                 </div>
