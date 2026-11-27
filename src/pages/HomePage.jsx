@@ -29,11 +29,11 @@ function Hero() {
             <span aria-hidden="true" className="h-px w-8 bg-lime" />
             {t('hero.eyebrow')}
           </motion.p>
-          <motion.h1 {...rise(0.06)} className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+          <motion.h1 {...rise(0.06)} className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl lg:text-[3.4rem]">
             {t('hero.name')}
-            <span className="mt-2 block text-xl font-semibold text-navy-200 sm:text-2xl">{t('hero.alias')}</span>
+            <span className="mt-2 block text-xl font-semibold text-navy-200 md:text-2xl">{t('hero.alias')}</span>
           </motion.h1>
-          <motion.p {...rise(0.12)} className="mt-5 text-sm font-bold uppercase tracking-[0.12em] text-lime sm:text-base">
+          <motion.p {...rise(0.12)} className="mt-5 text-sm font-bold uppercase tracking-[0.12em] text-lime md:text-base">
             {t('hero.role')}
           </motion.p>
           <motion.p {...rise(0.18)} className="mt-4 max-w-xl leading-relaxed text-navy-200 md:text-lg">

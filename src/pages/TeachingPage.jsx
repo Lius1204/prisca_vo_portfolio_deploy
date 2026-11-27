@@ -45,7 +45,7 @@ function Courses() {
       <SectionHeading id="courses-title" title={t('courses.title')} aside={<Chip tone="navy">{t('courses.total', { count: total })}</Chip>} />
       <div className="grid gap-5 lg:grid-cols-2">
         {groups.map((group, gi) => (
-          <Reveal key={group.tier} delay={gi * 0.06}>
+          <Reveal key={gi} delay={gi * 0.06}>
             <Card className="h-full">
               <div className="flex items-start gap-4">
                 <IconBadge icon={BookOpen} />
@@ -56,7 +56,7 @@ function Courses() {
                   <h3 className="mt-1 font-bold leading-snug">{group.name}</h3>
                 </div>
               </div>
-              <ul className="mt-5 grid gap-x-6 gap-y-2.5 border-t border-navy-100 pt-5 sm:grid-cols-2">
+              <ul className="mt-5 grid gap-x-6 gap-y-2.5 border-t border-navy-100 pt-5 md:grid-cols-2">
                 {group.items.map((course) => (
                   <li key={course} className="flex gap-2.5 text-sm font-medium leading-snug">
                     <span aria-hidden="true" className="mt-[7px] size-1 shrink-0 rounded-full bg-gold" />
@@ -78,9 +78,9 @@ function Certifications() {
     <Section aria-labelledby="certs-title">
       <SectionHeading id="certs-title" title={t('certs.title')} />
       <div className="grid gap-5 lg:grid-cols-12">
-        <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-8">
+        <ul className="grid gap-3 md:grid-cols-2 lg:col-span-8">
           {list('certs.items').map((c, i) => (
-            <Reveal as="li" key={c.title} delay={i * 0.04}>
+            <Reveal as="li" key={i} delay={i * 0.04}>
               <div className="flex h-full items-start gap-3 rounded-xl border border-navy-100 p-4">
                 <BadgeCheck className="mt-0.5 size-5 shrink-0 text-gold-dark" aria-hidden="true" />
                 <div>

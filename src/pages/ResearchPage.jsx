@@ -90,7 +90,7 @@ function Publication() {
             </div>
           </div>
 
-          <dl className="mt-10 grid gap-x-8 gap-y-5 border-t border-navy-100 pt-6 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-10 grid gap-x-8 gap-y-5 border-t border-navy-100 pt-6 md:grid-cols-2 lg:grid-cols-4">
             {list('publication.meta').map((row) => (
               <div key={row.label}>
                 <dt className="text-xs font-bold uppercase tracking-wider text-navy-600">{row.label}</dt>

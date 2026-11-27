@@ -105,7 +105,7 @@ function CertificateModal({ item, items, onSelect, onClose, t }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="evidence-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -205,7 +205,7 @@ function CertificateModal({ item, items, onSelect, onClose, t }) {
               {item.title}
             </h2>
 
-            <dl className="mt-5 grid grid-cols-1 gap-3.5 rounded-xl bg-navy-50 p-4 sm:grid-cols-2 md:grid-cols-1">
+            <dl className="mt-5 grid grid-cols-1 gap-3.5 rounded-xl bg-navy-50 p-4">
               <div>
                 <dt className="text-[11px] font-bold uppercase tracking-wider text-navy-600">{t('issuerLabel')}</dt>
                 <dd className="mt-1 text-sm font-semibold text-navy">{item.issuer || '—'}</dd>
@@ -283,7 +283,7 @@ export default function EvidencePage() {
         <div
           role="tablist"
           aria-label={t('filterLabel')}
-          className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7"
+          className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7"
         >
           {CATEGORIES.map(({ key, icon: Icon }) => {
             const count = getCount(key)
@@ -329,7 +329,7 @@ export default function EvidencePage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
           >
             {visible.map((item) => (
               <li key={item.code}>
