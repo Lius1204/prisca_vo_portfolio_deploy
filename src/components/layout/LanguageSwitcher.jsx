@@ -3,12 +3,26 @@ import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '@/i18n'
 import { cn } from '@/lib/utils'
 
-export default function LanguageSwitcher({ className, id = 'lang' }) {
+// The pill slides with a percentage x inside the equal-width grid (no layoutId):
+// layoutId used page coordinates and flew in vertically after a scroll in the sticky header.
+export default function LanguageSwitcher({ className }) {
   const { t, i18n } = useTranslation()
   const current = i18n.resolvedLanguage
+  const activeIndex = Math.max(0, LANGUAGES.indexOf(current))
 
   return (
-    <div role="group" aria-label={t('lang.label')} className={cn('flex rounded-full border border-navy-200 bg-white p-1', className)}>
+    <div
+      role="group"
+      aria-label={t('lang.label')}
+      className={cn('relative grid grid-cols-2 rounded-full border border-navy-200 bg-white p-1', className)}
+    >
+      <motion.span
+        aria-hidden="true"
+        className="absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-navy"
+        initial={false}
+        animate={{ x: `${activeIndex * 100}%` }}
+        transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+      />
       {LANGUAGES.map((lng) => {
         const active = current === lng
         return (
@@ -24,14 +38,6 @@ export default function LanguageSwitcher({ className, id = 'lang' }) {
               active ? 'text-white' : 'text-navy-600 hover:text-navy',
             )}
           >
-            {active && (
-              <motion.span
-                layoutId={`${id}-pill`}
-                aria-hidden="true"
-                className="absolute inset-0 rounded-full bg-navy"
-                transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-              />
-            )}
             <span className="relative">{t(`lang.${lng}`)}</span>
           </button>
         )

@@ -35,7 +35,7 @@ function Courses() {
                   <h3 className="mt-1 text-lg font-bold leading-snug">{group.name}</h3>
                 </div>
               </div>
-              <ul className="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-x-6 gap-y-3 md:grid-cols-2">
                 {group.items.map((course) => (
                   <li key={course} className="flex gap-2.5 text-sm font-medium leading-snug">
                     <span aria-hidden="true" className="mt-1.5 size-1.5 shrink-0 rounded-full bg-lime" />

@@ -115,6 +115,8 @@ Navbar brand is text "Prisca Vo, MBA". Favicon is the PHTSO/Sourcez symbol on a 
 - **QA harness:** `C:\Users\Admin\AppData\Local\hermes\profiles\greenbowl\skills\design\gsap-lenis-single-file-site\scripts\qa_harness.py`. Load it with `exec(open(path).read())` inside a `browser_exec` call, then `qa_setup()`, `qa_viewport('desktop'|'mobile')`, `qa_open(url, storage=[('localStorage','lang','vi')])`, `qa_sweep()`, `qa_health()`, `qa_snap_sections()`. Take screenshots and look at them; `qa_health()` alone does not catch layout problems.
 - **i18n restructuring:** move keys between namespaces with a Python script, never by retyping copy, then run `npm run check:i18n`.
 - **`cn()` is tailwind-merge**, so class order decides the winner; do not add `bg-*` defaults that fight a caller's colour.
+- **Breakpoints are only `md` 768 / `lg` 1024 / `xl` 1280** (`@theme` in `src/styles/index.css`, `--breakpoint-*: initial`). `sm:` and `2xl:` no longer exist, so they silently do nothing; use `md:`. Full nav shows from `xl`.
+- **No `layoutId` inside the sticky header.** motion measures layoutId in page coordinates; when a language switch shortens the page and `scrollY` clamps, the nav underline and language pill flew in vertically. They now animate `x`/`width` measured inside their own container (`Header.jsx` `DesktopNav`, `LanguageSwitcher.jsx`). `layoutRoot` on the header did not fix it.
 - **Git:** commit locally with a message file (`git commit -F msg.txt`) because `&` in a `-m` message trips the tool. Never push.
 
 ## 10. Verification recipe (about 5 minutes)
