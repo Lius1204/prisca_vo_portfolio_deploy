@@ -90,7 +90,7 @@ function Publication() {
             </div>
           </div>
 
-          <dl className="mt-10 grid gap-x-8 gap-y-5 border-t border-navy-100 pt-6 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-10 grid gap-x-8 gap-y-5 border-t border-navy-100 pt-6 md:grid-cols-2 lg:grid-cols-4">
             {list('publication.meta').map((row) => (
               <div key={row.label}>
                 <dt className="text-xs font-bold uppercase tracking-wider text-navy-600">{row.label}</dt>
@@ -352,9 +352,6 @@ function Interests() {
                   <h2 id="interests-title" className="mt-3 text-lg font-extrabold leading-tight tracking-tight">
                     {t('interests.title')}
                   </h2>
-                  <span className="mt-2 rounded-full bg-white/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-lime">
-                    {t('interests.centerSubtitle')}
-                  </span>
                 </div>
               </div>
             </div>
@@ -371,9 +368,6 @@ function Interests() {
                 <Compass className="size-5" aria-hidden="true" />
               </span>
               <h2 className="mt-2.5 text-lg font-extrabold tracking-tight">{t('interests.title')}</h2>
-              <span className="mt-1.5 rounded-full bg-white/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-lime">
-                {t('interests.centerSubtitle')}
-              </span>
             </div>
 
             <div className="relative mx-auto mt-6 max-w-xl pl-7">

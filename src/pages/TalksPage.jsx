@@ -75,7 +75,7 @@ function Community() {
       <SectionHeading id="community-title" title={t('community.title')} aside={<Chip>{t('community.period')}</Chip>} />
       <ul className="grid gap-5 md:grid-cols-2">
         {list('community.items').map((item, i) => (
-          <Reveal as="li" key={item.title} delay={i * 0.06} className="h-full">
+          <Reveal as="li" key={i} delay={i * 0.06} className="h-full">
             <Card interactive className="flex h-full flex-col gap-3.5">
               <div className="flex items-start gap-4">
                 <IconBadge icon={HeartHandshake} />

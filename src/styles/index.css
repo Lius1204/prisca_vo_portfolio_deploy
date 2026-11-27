@@ -2,7 +2,17 @@
 
 /* Brand: 60-30-10 palette — 60% White, 30% Maastricht Blue (#0A2338), 10% Lime Green (#30D848). */
 @theme {
-  --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  /* Responsive groups (mobile-first, only these three breakpoints exist):
+     Mobile  < 768px      -> default, no prefix
+     Tablet  768-1023px   -> md:  @media (min-width: 768px)
+     Laptop  1024-1279px  -> lg:  @media (min-width: 1024px)
+     Large   >= 1280px    -> xl:  @media (min-width: 1280px) */
+  --breakpoint-*: initial;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
 
   /* 30% Maastricht Blue (#0a2338) shades & tints */
   --color-navy-950: #061521;
